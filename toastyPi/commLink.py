@@ -40,6 +40,6 @@ try:
                 executeCommand(currentFeed[len(currentFeed) - 1])
                 commandsExecuted += 1
         sleep(0.01)
-`except KeyboardInterrupt:
+except KeyboardInterrupt:
     pwm.stop()
     GPIO.cleanup()
