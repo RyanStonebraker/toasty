@@ -12,7 +12,8 @@ $(document).ready(function () {
 
   $("a.toastit").click(function () {
     toastLink.pushToast({
-      "intensity": $("#burn-slider").slider('value')
+      "intensity": $("#burn-slider").slider('value'),
+      "timestamp": new Date().getTime()
     });
   });
 
