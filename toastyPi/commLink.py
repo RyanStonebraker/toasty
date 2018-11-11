@@ -29,7 +29,7 @@ def executeCommand(command):
     print(command)
 
 try:
-`    while True:
+    while True:
         currentFeed = requests.get(config['feedURL']).json()
         if not commandsExecuted or currentFeed[len(currentFeed) - 1]['timestamp'] > lastTimeStamp:
             if commandsExecuted < config['maxHistory']:
