@@ -75,7 +75,8 @@ a.toastit {
 }
 
 a.toastit:hover {
-  background-color: black;
+  background-color: #999999;
   color: whitesmoke;
   transition: all 0.25s ease;
+  cursor: pointer;
 }
