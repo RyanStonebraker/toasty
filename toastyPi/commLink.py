@@ -10,7 +10,7 @@ pwm.start(7.5)
 
 config = {
     "feedURL": "http://192.168.0.102:5000/commands",
-    "telemetryURL": "http://127.0.0.1:5000/telemetry",
+    "telemetryURL": "http://192.168.0.102:5000/telemetry",
     "maxHistory": 100
 }
 
@@ -22,22 +22,24 @@ def driveServo():
     sleep(2)
     pwm.ChangeDutyCycle(100)
     sleep(2)
-    pwm.stop()
-    GPIO.cleanup()
 
 def executeCommand(command):
     intense = command['intensity']
     driveServo()
     print(command)
 
-while True:
-    currentFeed = requests.get(config['feedURL']).json()
-    if not commandsExecuted or currentFeed[len(currentFeed) - 1]['timestamp'] > lastTimeStamp:
-        if commandsExecuted < config['maxHistory']:
-            for command in currentFeed[commandsExecuted:]:
-                executeCommand(command)
+try:
+`    while True:
+        currentFeed = requests.get(config['feedURL']).json()
+        if not commandsExecuted or currentFeed[len(currentFeed) - 1]['timestamp'] > lastTimeStamp:
+            if commandsExecuted < config['maxHistory']:
+                for command in currentFeed[commandsExecuted:]:
+                    executeCommand(command)
+                    commandsExecuted += 1
+            else:
+                executeCommand(currentFeed[len(currentFeed) - 1])
                 commandsExecuted += 1
-        else:
-            executeCommand(currentFeed[len(currentFeed) - 1])
-            commandsExecuted += 1
-    sleep(0.01)
+        sleep(0.01)
+`except KeyboardInterrupt:
+    pwm.stop()
+    GPIO.cleanup()
