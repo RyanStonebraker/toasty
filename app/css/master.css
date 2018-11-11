@@ -1,0 +1,81 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Open Sans';
+}
+
+header {
+  -webkit-app-region: drag;
+  color: black;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 img {
+  max-width: 75px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+main section.breadholder {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+main section.breadholder img {
+  width: 500px;
+  margin-top: 50px;
+  position: absolute;
+}
+
+main section.breadholder img.toasted {
+  opacity: 0;
+  mix-blend-mode: multiply;
+}
+
+div#burn-slider {
+  width: 50%;
+  margin-top: 50px;
+  min-height: 15px;
+}
+
+div#burn-slider span {
+  outline: none;
+}
+
+a.toastit {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: whitesmoke;
+  margin-top: 50px;
+  font-family: "Open Sans";
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  transition: all 0.25s ease;
+}
+
+a.toastit:hover {
+  background-color: black;
+  color: whitesmoke;
+  transition: all 0.25s ease;
+}
