@@ -18,10 +18,11 @@ commandsExecuted = 0
 lastTimeStamp = 0
 
 def driveServo():
-    pwm.ChangeDutyCycle(0)
-    sleep(2)
-    pwm.ChangeDutyCycle(100)
-    sleep(2)
+    print("Drive Servo Executed")
+    pwm.ChangeDutyCycle(1)
+    sleep(1)
+    pwm.ChangeDutyCycle(99)
+    sleep(1)
 
 def executeCommand(command):
     intense = command['intensity']
